@@ -1,0 +1,23 @@
+{
+  "name": "ngx-requiem",
+  "version": "0.0.1",
+  "description": "Requiem is an Angular library that makes it easy to create and handle REST API requests.",
+  "main": "./lib/ngx-requiem.module.ts",
+  "peerDependencies": {
+    "@angular/common": "^16.2.0",
+    "@angular/core": "^16.2.0"
+  },
+  "scripts": {
+    "build": "ng build ngx-requiem",
+    "test:lib": "ng test ngx-requiem --no-watch --no-progress --browsers=ChromeHeadless"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "compilerOptions": {
+    "strict": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "sideEffects": false
+}
