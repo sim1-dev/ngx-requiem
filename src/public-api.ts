@@ -6,7 +6,7 @@ export * from './lib/ngx-requiem.module';
 
 export { ApiConfig, API_CONFIG } from './lib/api/api-config.token';
 
-export { ApiService } from './lib/api/api.service';
+//export { ApiService } from './lib/api/api.service';
 
 export { ApiRequest } from './lib/api/request/request.model';
 export { ApiResponse } from './lib/api/response/response.model';

@@ -20,6 +20,7 @@ export class ApiService {
         private http: HttpClient,
         public router: Router,
 
+        //@ts-ignore
         @Inject(API_CONFIG) private config: ApiConfig
     ) {
       console.log('ApiConfig:', config)

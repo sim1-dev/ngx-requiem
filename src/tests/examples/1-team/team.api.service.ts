@@ -1,10 +1,10 @@
-import { ApiService } from "../../../public-api"
 import { Team } from "./team.model"
 import { TeamRequest } from "./team.request.model"
 
 import { ApiResponse } from "../../../lib/api/response/response.model"
 import { Observable } from "rxjs"
 import { Injectable } from "@angular/core"
+import { ApiService } from "../../../lib/api/api.service"
 
 @Injectable({
     providedIn: 'root'

@@ -28,7 +28,7 @@ import { environment } from './environment';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    NgxRequiemModule.forRoot(environment.apiConfig as ApiConfig),
+    NgxRequiemModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -38,7 +38,8 @@ export class AppModule { }
 ## Usage
 ApiRequest and ApiResponse are used to manage API requests and responses in a standardized way.
 
-1) Create an api service:
+
+### 1) Create an api service:
 ```typescript
 import { Router } from '@angular/router';
 import { Inject, Injectable } from '@angular/core';
@@ -49,19 +50,16 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { ApiRequest } from './request/request.model';
-import { ApiResponse } from './response/response.model';
-
-import { API_CONFIG, ApiConfig } from './api-config.token';
+import { ApiConfig, ApiRequest, ApiResponse } from 'ngx-requiem';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class ApiService {
-  
+    config: ApiConfig = environment.apiConfig
+
     constructor(
       private http: HttpClient, 
       public router: Router, 
-      // you can also pass your environment here
-      @Inject(API_CONFIG) private config: ApiConfig
     ) { }
 
 
@@ -123,7 +121,8 @@ export class ApiService {
 }
 ```
 
-2) Create a custom request for your entity:
+
+### 2) Create a custom request for your entity:
 ```typescript
 // you can avoid passing types completely. Your class will reuse the standard ones
 export class TeamRequest extends ApiRequest<TeamRequestFilter, TeamRequestOrder, TeamRequestPagination> {
@@ -146,7 +145,11 @@ export class TeamRequestFilter extends ApiRequestFilter<Team> {}
 export class TeamRequestOrder extends ApiRequestOrder {}
 export class TeamRequestPagination extends ApiRequestPagination {}
 ```
-3) Create the service for your entity API:
+
+
+
+
+### 3) Create the service for your entity API:
 ```typescript
 import { ApiService } from "../../../public-api"
 import { Team } from "./team.model"
@@ -175,7 +178,9 @@ export class TeamApiService {
 }
 ```
 
-4) Compose your request
+
+
+### 4) Compose your request
 ```typescript
 import { Component } from '@angular/core';
 import { ApiService } from 'ngx-requiem';
