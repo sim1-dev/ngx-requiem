@@ -211,13 +211,15 @@ export class TeamComponent implements OnInit {
             .setSize(20)
         )
 
-      this.teamServce.getTeams(request).pipe(
-        tap((response: ApiResponse<Team[]>) => expect(response).toEqual(mockResponse)),
+      this.teamService.getTeams(request).pipe(
         map((response: ApiResponse<Team[]>) => response.dto as Team[])
       )
       .subscribe((teams: Team[]) => {
         this.teams = teams
       })
+
+      // result queryString = id%5Bgte%5D=5&name%5Blke%5D=%25TeamBallo%25&orderField=id&orderDirection=ASC&paginationPage=3&paginationSize=20
+      // an equivalent backend module must be able to decode and handle it properly
   }
 }
 ```
@@ -227,7 +229,7 @@ The library also contains some examples of real world usage.
 For more informations check either tests runner or the tests/examples folder.
 
 ## Documentation
-For further details on using the library, please refer to the official documentation in your source code or repository.
+For further details on using the library, please refer to the official documentation in the source code or repository.
 
 ## Contributing
 If you would like to contribute to NgxRequiem, feel free to open an issue or a pull request in the repository.

@@ -12,14 +12,18 @@ import { ApiResponse } from './response/response.model';
 
 import { API_CONFIG, ApiConfig } from './api-config.token';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class ApiService {
-  
     constructor(
-      private http: HttpClient, 
-      public router: Router, 
-      @Inject(API_CONFIG) private config: ApiConfig
-    ) { }
+        private http: HttpClient,
+        public router: Router,
+
+        @Inject(API_CONFIG) private config: ApiConfig
+    ) {
+      console.log('ApiConfig:', config)
+    }
 
 
   get<T>(path: string, request: ApiRequest): Observable<ApiResponse<T>> {
