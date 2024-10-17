@@ -234,7 +234,7 @@ The library also contains some examples of real world usage.
 For more informations check either tests runner or the tests/examples folder.
 
 ## Documentation
-For further details on using the library, please refer to the official documentation in the source code or repository.
+For further details on using the library, please refer to the documentation in the source code or repository, or read the official [docs](https://ngx-requiem-docs.vercel.app/)
 
 ## Contributing
 If you would like to contribute to NgxRequiem, feel free to open an issue or a pull request in the repository.
