@@ -1,14 +1,3 @@
-// export enum QueryOperator {
-//     EQUAL = '=',
-//     NOT_EQUAL = '!=',
-//     LIKE = 'LIKE',
-//     GREATER = '>',
-//     GREATEREQUAL = '>=',
-//     LOWER = '<',
-//     LOWEREQUAL = '<=',
-//     IN = 'IN',
-// }
-
 export enum QueryOperator {
     EQUAL = 'eq',
     NOT_EQUAL = 'neq',

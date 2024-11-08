@@ -5,11 +5,11 @@ import { ApiRequestPagination } from "../../../lib/api/request/pagination/pagina
 import { ApiRequestOrder } from "../../../lib/api/request/order/order.model";
 
 export class TeamRequest extends ApiRequest<TeamRequestFilter> {
-    teamName?: string
-    action?: string
+    private teamName?: string
+    private action?: string
 
-    setTeamName(teamName: string): this {
-        this.teamName = teamName
+    setTeamName(name: string): this {
+        this.teamName = name
         return this
     }
 

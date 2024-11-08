@@ -4,13 +4,14 @@ import { QueryOperator } from '../../../lib/api/request/filter/query-operator.mo
 import { TeamApiService } from './team.api.service';
 import { Team } from './team.model';
 import { TeamRequest, TeamRequestFilter, TeamRequestOrder, TeamRequestPagination } from './team.request.model';
-import { NgxRequiemModule } from '../../../public-api';
+import { MoesifParserProvider, NgxRequiemModule } from '../../../public-api';
 import { OrderDirection } from '../../../lib/api/request/order/order.model';
 
 import { ApiResponse } from '../../../lib/api/response/response.model';
 import { map, of, tap } from 'rxjs';
 import { HttpClientTestingModule, HttpTestingController, TestRequest } from '@angular/common/http/testing';
 import { API_CONFIG } from '../../../lib/api/api-config.token';
+import { PlainParserProvider } from '../../../lib/api/providers/parser/plain-parser.provider';
 
 describe('TeamApiService', () => {
     let service: TeamApiService
@@ -61,9 +62,15 @@ describe('TeamApiService', () => {
                 .setPage(3)
                 .setSize(20)
             )
+            .setParser(new PlainParserProvider())
 
-        //console.log(request.toHttpParamsLegacy().toString(), "TeamRequest Params Legacy")
-        console.log(request.toHttpParams().toString(), "TeamRequest GET params")
+        console.log(request.toHttpParams().toString(), "TeamRequest GET params - Plain parser (Legacy)")
+
+
+        request
+            .setParser(new MoesifParserProvider())
+
+        console.log(request.toHttpParams().toString(), "TeamRequest GET params - Default parser (Moesif)")
 
 
         const mockResponse: ApiResponse<Team[]> = {

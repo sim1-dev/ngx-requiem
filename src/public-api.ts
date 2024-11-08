@@ -8,6 +8,9 @@ export { ApiConfig, API_CONFIG } from './lib/api/api-config.token';
 
 //export { ApiService } from './lib/api/api.service';
 
+export { ParserProvider } from './lib/api/providers/parser/parser.provider';
+export { MoesifParserProvider } from './lib/api/providers/parser/moesif-parser.provider';
+
 export { ApiRequest } from './lib/api/request/request.model';
 export { ApiResponse } from './lib/api/response/response.model';
 
